@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo -- sh -c  'service apache2 start; service mysql start'
+
