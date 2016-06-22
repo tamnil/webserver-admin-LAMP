@@ -7,14 +7,14 @@ start/stop webservers service (Mysql and Apache2)
 
 # ToDo:
 
-## restart apache server option
+ restart apache server option
 
-## purge old logs
+ purge old logs
 
-## compatibility with CentOS/RedHat derivates
+ compatibility with CentOS/RedHat derivates
 
 #MayB Do:
 
-## gtk interface
-## indicator applet
+ gtk interface
+ indicator applet
 
