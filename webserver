@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+case $1 in
+
+restart)
+    echo "Restarting server"
+    sudo -- sh -c  'service apache2 restart; service mysql restart'
+    ;;
+
+
+start)
+    echo "Starting server"
+    sudo -- sh -c  'service apache2 start; service mysql start'
+    ;;
+
+stop)
+    echo "Stoping server"
+    sudo -- sh -c  'service apache2 stop; service mysql stop'
+    ;;
+
+*)
+    echo "Usage : webserver start|stop|restart"
+    ;;
+
+--help)
+    echo "Usage : webserver start|stop|restart"
+    ;;
+esac
