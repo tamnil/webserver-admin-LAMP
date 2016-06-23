@@ -2,12 +2,16 @@
 
 Shell scripts for Ubuntu/Debian structure. Not tested on other distros
 
-## webserver-{start,stop}
-start/stop webservers service (Mysql and Apache2)
+## webserver
+###Usage:
 
-# ToDo:
+webserver {start|stop|restart}
 
- restart apache server option
+
+
+#start/stop webservers service (Mysql and Apache2) ToDo:
+
+ done :restart apache server option
 
  purge old logs
 
