@@ -8,6 +8,7 @@ Shell scripts for Ubuntu/Debian structure. Not tested on other distros
 webserver {start|stop|restart}
 
 
+note: webserver-start, webserver-stop is deprecated!
 
 #start/stop webservers service (Mysql and Apache2) ToDo:
 
