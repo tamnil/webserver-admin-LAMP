@@ -1,2 +1,0 @@
-#!/bin/bash
-sudo -- sh -c 'service mysql stop ; service apache2 stop'
