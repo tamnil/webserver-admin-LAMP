@@ -1,29 +1,69 @@
 #!/bin/bash
-
+command=$1
+arg=$2
 
 case $1 in
 
-restart)
-    echo "Restarting server"
-    sudo -- sh -c  'service apache2 restart; service mysql restart'
-    ;;
+    restart)
+        sudo -- sh -c  '
+        echo "Restarting APACHE2 server"; 
+        service apache2 restart;
+        echo "Restarting MySQL server";
+        service mysql restart
+        ';;
 
 
-start)
-    echo "Starting server"
-    sudo -- sh -c  'service apache2 start; service mysql start'
-    ;;
+    start)
+        sudo -- sh -c  '
+        echo "Starting APACHE server";
+        service apache2 start;
+        echo "Starting MySQL server";
+        service mysql start
+        ';;
 
-stop)
-    echo "Stoping server"
-    sudo -- sh -c  'service apache2 stop; service mysql stop'
-    ;;
+    stop)
+        echo "Stoping server"
+        sudo -- sh -c  'service apache2 stop; service mysql stop'
+        ;;
 
-*)
-    echo "Usage : webserver start|stop|restart"
-    ;;
+    chperm)
+        echo "************************************"
+        echo "Set permissions f-664 d-775 www-data"
+        echo "************************************"
 
---help)
-    echo "Usage : webserver start|stop|restart"
-    ;;
+        read -p "Are you sure?[n] " -n 1 -r
+        echo ""
+
+        if [[ $REPLY =~ ^[Yy]$ ]]
+        then
+            if [[ ! -z "$arg" ]]
+            then
+        sudo  -E arg="$arg" PWD="$PWD" -- sh  -Ec '
+        echo $PWD;
+        pwd;
+                echo "here y $arg"  ; 
+                echo "Executing: find $arg -type f -exec chmod 664 {} \;";
+                find $arg -type f -exec chmod 664 {} \;;
+                echo "Executing: find $arg -type d -exec chmod 775 {} \;";
+                find $arg -type d -exec chmod 775 {} \;;
+                echo "chmod www-data: $arg -R";
+                chown www-data: $arg -R;
+                '
+            else
+                echo "need folder argument( webserver perm (folder)"
+            fi
+        else
+            echo "Aborted"
+        fi
+        ;;
+        # sudo -- sh -c  '
+        # echo "find . 
+        # ';;
+    *)
+        echo "Usage : webserver start|stop|restart|chperm (folder)"
+        ;;
+
+    --help)
+        echo "Usage : webserver start|stop|restart|chperm (folder)"
+        ;;
 esac
