@@ -27,10 +27,16 @@ case $1 in
         ;;
 
     chperm)
+        if [[ $arg == "/" ]]
+        then
+            echo "folder not allowed"
+            exit
+        fi
+
         echo "************************************"
         echo "Set permissions f-664 d-775 www-data"
         echo "************************************"
-
+echo "folder: $arg"
         read -p "Are you sure?[n] " -n 1 -r
         echo ""
 
