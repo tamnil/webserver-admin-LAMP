@@ -16,11 +16,12 @@ module.exports = function(grunt) {
 
         watch: {
             options: { livereload: true, },
-            css: { files: ['css/**/*.css'], },
-            js: { files: ['js/**/*.js'], },
-            html: { files: ['*.html'], },
-            phtml: { files: ['*.phtml'], },
-            php: { files: ['*.php'], }
+            xml: { files: ['**/*.xml'], },
+            css: { files: ['**/*.css'], },
+            js: { files: ['**/*.js'], },
+            html: { files: ['**/*.html'], },
+            phtml: { files: ['**/*.phtml'], },
+            php: { files: ['**/*.php'], }
         },
         connect: {
             server: {
@@ -35,9 +36,9 @@ module.exports = function(grunt) {
             }
         },
     });
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.registerTask('server', ['connect','watch']);
+grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-contrib-connect');
+grunt.registerTask('server', ['connect','watch']);
 
 };
 
